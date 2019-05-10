@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Bash version ${BASH_VERSION}..."
+for i in {0..500}
+  do
+     git checkout -b "new-branch-$i"
+     git commit --allow-empty -m "Created branch $i"
+     git push origin "new-branch-$i"
+     hub pull-request -m "New branch $i"
+     git checkout master
+ done
